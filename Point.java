@@ -9,12 +9,12 @@ public class Point implements Comparable<Point> {
     private final int x;
     private final int y;
     
-    public Point(int x, int y) { 
+    public Point(int x, int y) {   // Create a point with x coordinate and y coordinate
         this.x = x;
         this.y = y;
         
     }
-    private class SlopeOrder implements Comparator<Point> {
+    private class SlopeOrder implements Comparator<Point> {       //compare the slopes of two points
         public int compare (Point p, Point q) {
             if (p.slopeTo(Point.this) < Point.this.slopeTo(q)) {
                 return -1;
@@ -27,16 +27,16 @@ public class Point implements Comparable<Point> {
             }
         }
     }
-    public void draw() {
+    public void draw() {   // draw thw point on the system
         StdDraw.point(x,y);
     }
-    public void drawTo(Point that) {
+    public void drawTo(Point that) {     // connect two lines
         StdDraw.line(this.x, this.y, that.x, that.y);
     }
-    public String toString() {
+    public String toString() {     // return the coordinate of the points
         return "(" + x + "," + y + ")";
     }
-    public double slopeTo(Point that) {
+    public double slopeTo(Point that) {         // calculate the slope of the point
         double num = (double) that.y - this.y;
         double den = (double) that.x - this.x;
         if (num == 0 && den == 0) {
@@ -54,7 +54,7 @@ public class Point implements Comparable<Point> {
        
     }
     
-    public int compareTo(Point that) {
+    public int compareTo(Point that) {   //check whether a point is smaller than the other by comparing y coordinate
          if(this.y < that.y) return -1;
         else if (this.y == that.y) {
             if (this.x < that.x) return -1;
@@ -65,7 +65,7 @@ public class Point implements Comparable<Point> {
        
     }
     
-    public static void main(String[] args) { 
+    public static void main(String[] args) {  // test code
         Point p = new Point (3,5);
         Point q = new Point (3,5);
         Point r = new Point (3,5);
